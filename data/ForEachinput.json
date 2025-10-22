@@ -1,0 +1,26 @@
+[
+	{
+	"csv_relative_url": "Project-Brazillian-Ecommerce/refs/heads/main/data/olist_customers_dataset.csv",
+	"filename":"olist_customers_dataset.csv"
+	},
+	{
+	"csv_relative_url": "Project-Brazillian-Ecommerce/refs/heads/main/data/olist_order_items_dataset.csv",
+	"filename":"olist_order_items_dataset.csv"
+	},
+	{
+	"csv_relative_url": "Project-Brazillian-Ecommerce/refs/heads/main/data/olist_order_reviews_dataset.csv",
+	"filename":"olist_order_reviews_dataset.csv"
+	},
+	{
+	"csv_relative_url": "Project-Brazillian-Ecommerce/refs/heads/main/data/olist_orders_dataset.csv",
+	"filename":"olist_orders_dataset.csv"
+	},
+	{
+	"csv_relative_url": "Project-Brazillian-Ecommerce/refs/heads/main/data/olist_products_dataset.csv",
+	"filename":"olist_products_dataset.csv"
+	},
+	{
+	"csv_relative_url": "Project-Brazillian-Ecommerce/refs/heads/main/data/olist_sellers_dataset.csv",
+	"filename":"olist_sellers_dataset.csv"
+	}
+]	
