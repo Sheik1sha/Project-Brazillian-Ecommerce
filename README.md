@@ -9,9 +9,40 @@ The goal is to design, automate, and visualize the entire data lifecycle — fro
 ## 🧩 Architecture  
 ![Architecture](Architecture_Diagram/ArchitectureDiagram.png)
 
+## ⚙️ Data Ingestion Pipeline – Azure Data Factory
+
+![Data Pipeline](Architecture_Diagram/DataPipeline.png)
+
+The pipeline is **metadata-driven** and dynamically fetches file information from **JSON configuration files** stored in **GitHub**.  
+Each pipeline run extracts the necessary parameters from JSON (such as file paths, dataset names, and storage destinations) and ingests data accordingly.
+
+### 🔹 Pipeline Components
+1. **Lookup Activity**  
+   - Reads JSON files directly from the GitHub source repository.  
+   - Extracts metadata such as file names, schema paths, and ADLS destinations.  
+   - Serves as the **control configuration** for all ingestion logic.  
+
+2. **ForEach Activity**  
+   - Iterates through each dataset entry from the Lookup JSON output.  
+   - Dynamically executes the Copy Data activity for each dataset listed in the JSON.  
+
+3. **Copy Data (geo)**  
+   - Fetches *geolocation dataset* from GitHub (HTTP link).  
+   - Writes the data into the **Raw zone** of ADLS in Parquet format.  
+
+4. **Copy Data (Datafromsql)**  
+   - Connects to a **SQL Database** (e.g., Orders, Products, Payments tables).  
+   - Copies tabular data into ADLS Raw zone for transformation in Databricks.  
+
+### 🔹 Purpose  
+- Enables **parameterized and reusable ingestion** using GitHub JSON files as control metadata.  
+- Simplifies pipeline maintenance — new datasets can be added by simply updating the JSON file.  
+- Ensures consistency and scalability across multiple data sources.  
+- Acts as the **first stage (Bronze Layer)** in the Azure Data Lakehouse workflow before transformation in Databricks and modeling in Synapse.
+
 ### 🔹 Data Flow Summary  
 1. **Data Ingestion – Azure Data Factory**  
-   - Pulls data from **GitHub (HTTP)** and **SQL Tables**.  
+   - Pulls data from **GitHub (HTTP)** and **MySQL Database**.  
    - Stores data into **Azure Data Lake Storage Gen2 (Raw Zone)**.  
 
 2. **Data Transformation – Azure Databricks**  
@@ -57,7 +88,7 @@ The dataset consists of multiple relational tables describing orders, customers,
 ## 🧮 Data Model / Schema  
 Below is the schema representing how the datasets are related:
 
-![Schema](architecture/olist_schema_diagram.png)
+![Schema](Architecture_Diagram/Schema.png)
 
 ### Key Relationships  
 | Table | Key Column | Linked Table | Relationship |
@@ -107,6 +138,7 @@ Below is the schema representing how the datasets are related:
 
 ## 📁 Repository Structure
 
+```text
 ├── data/
 │ ├── raw/
 │ └── transformed/
@@ -122,5 +154,5 @@ Below is the schema representing how the datasets are related:
 │ └── product_performance_dashboard.png
 ├── architecture/
 │ ├── architecture_diagram.png
-│ └── olist_schema_diagram.png
+│ └── Schema.png
 └── README.md
