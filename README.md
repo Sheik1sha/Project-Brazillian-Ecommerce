@@ -111,11 +111,10 @@ Below is the schema representing how the datasets are related:
 │ ├── raw/
 │ └── transformed/
 ├── notebooks/
-│ ├── ingestion_notebook.ipynb
-│ ├── transformation_notebook.ipynb
-│ └── enrichment_notebook.ipynb
+│ ├── Data_ingestion.ipynb
+│ ├── databricks_code_transformation.py
 ├── sql/
-│ └── synapse_tables.sql
+│ └── synapse_gold_layer_tables.sql
 ├── reports/
 │ └── dashboards.pbix
 ├── dashboards/
