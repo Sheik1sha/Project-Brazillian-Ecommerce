@@ -56,12 +56,12 @@ Each pipeline run extracts the necessary parameters from JSON (such as file path
    - Enables SQL-based analytics and BI connections.  
 
 4. **Visualization & Insights**  
-   - Connects **Power BI**, **Tableau**, and **Microsoft Fabric** to Synapse for dashboards.  
+   - Connects **Tableau** to Synapse( we can also Integrate **Fabric** or **PowerBI**) for dashboards.  
    - Dashboards highlight:
      - Sales and revenue trends  
      - Payment behavior  
-     - Delivery delays and logistics performance  
-     - Customer and seller insights  
+     - Delivery delays  
+     - Customer Review Scores and Delivery Satisfaction  
 
 ---
 
@@ -106,10 +106,10 @@ Below is the schema representing how the datasets are related:
 
 ## ⚙️ Key Features
 - Automated **ETL pipeline** using Azure Data Factory and Databricks.  
-- Multi-layered data lake structure (**Raw → Transformed → Analytics**).  
-- **Incremental refresh**, **schema validation**, and **error handling**.  
-- Data enrichment using external MongoDB tables.  
-- BI dashboards connected via Synapse external tables.  
+- Implemented **Medallion Architecture** with Bronze (Raw), Silver (Transformed), and Gold (Analytics) layers.  
+- Data transformation and cleansing performed using **PySpark** in Databricks.  
+- **External tables** created in Azure Synapse Analytics for BI integration.  
+- Designed interactive **Tableau dashboards** for sales, delivery, and product insights.
 
 ---
 ## 📊 Dashboard Previews  
