@@ -1,4 +1,4 @@
-# 🛒 Brazilian E-Commerce Data Engineering Project  
+# 🛒 Olist Brazilian E-Commerce Data Engineering Project  
 
 ## 📘 Project Overview  
 This project demonstrates an **end-to-end Azure-based data engineering pipeline** built using the **Brazilian E-Commerce (Olist)** dataset.  
