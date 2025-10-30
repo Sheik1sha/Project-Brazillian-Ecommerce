@@ -7,7 +7,7 @@ The goal is to design, automate, and visualize the entire data lifecycle — fro
 ---
 
 ## 🧩 Architecture   
-![Architecture](Architecture_Diagram/ArchitectureDiagram.png)
+![Architecture](Architecture_Diagram/Architecture_Diagram.png)
 
 ## ⚙️ Data Ingestion Pipeline – Azure Data Factory
 
